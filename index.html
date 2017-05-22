@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="css/jquery.fullPage.css" />
+		<script type="text/javascript" src="js/jquery-3.1.1.min.js" ></script>
+		<script type="text/javascript" src="js/radialIndicator.js" ></script>
+		<script type="text/javascript" src="js/jquery.fullPage.min.js" ></script>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			a{
+				text-decoration: none;
+			}
+			li{
+				list-style-type: none;
+			}
+			.section1{
+				background: url(img/2.jpg) no-repeat ;
+				background-size: 100% 100%;
+				min-width: 1200px;
+			}
+			.section1 .section1_content{
+				width: 1000px;
+				height: 548px;
+				background:rgba(0,0,0,0.5);
+				margin: 0 auto;
+				padding: 100px;
+			}
+			.section1_content P{
+				color: #FFF;
+				font-family: "微软雅黑";
+				font-size: 42PX;
+				display: block;
+				margin-top: 30px;
+				position: relative;
+			}
+			.section1_content p span{
+				position: relative;
+			}
+			.section1_content p span:after{
+				content: "";
+				position: absolute;
+				width: 93px;
+				height: 50px;
+				display: block;
+				background: url(img/HI-!.png);
+				top: -40px;
+				left: 50px;
+			}
+			.section1_content p span:before{
+				content: "";
+				position: absolute;
+				width: 600px;
+				height: 2px;
+				background: rgba(255,255,255,0.5);
+				bottom:-20px;
+				left: 0;	
+			}
+			.section1_content .section1_informe{
+				width: 100%;
+				height: 450px;
+				position: relative;
+				margin-top: 50px;
+			}
+			.section1_informe .informe_left{
+				width: 50%;
+				height: 100%;
+				float: left;
+			}
+			.section1_informe .informe_right{
+				width: 50%;
+				height: 100%;
+				float: left;
+			}
+			.section1_informe .informe_left li,.informe_right li{
+				margin-bottom: 30px;
+				color: #fff;
+				font-size: 35px;
+				font-family: "微软雅黑";
+				font-weight: normal;
+			}
+			.section2{
+				min-width: 1200px;
+			}
+			.section2_content{
+				width: 1200px;
+				height: 100%;
+				margin: 0 auto;
+				position: relative;
+			}
+			.section2_title{
+				width: 100%;
+				height: 200px;
+				position: relative;
+			}
+			.section2_title .exp{
+				width: 220px;
+				height: 180px;
+				background:rgb(15,217,217) ;
+				color: #FFF;
+				text-align: center;
+				float: left;
+			}
+			.exp:before{
+				content: "";
+				height: 20px;
+				width: 220px;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				background: #000;
+			}
+			.exp p{
+				font-size: 42px;
+				display:block;
+				padding-top: 30px ;
+				margin-left: -45px;				
+			}
+			.exp p span{
+				display: block;
+				margin-left: 90px;
+			}
+			.section2_title>p{
+				display: block;
+				position: absolute;
+				bottom: 0;
+				right: 0px;
+				color: #000;
+				font-size: 42px;
+			}
+			.section2_title>p span{
+				display: block;
+				margin-left: 107px;
+			}
+			.section2 .section2_informe{
+				width: 100%;
+				margin-top: 20px;
+				position: relative;
+			}
+			.section2_informe>p{
+				font-size: 38px;
+			}
+			.information_content{
+				margin-top: 20px;
+				width: 100%;
+				height: 600px;
+				position: relative;
+			}
+			.information_content:before{
+				content: "";
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 20px;
+				height: 100%;
+				background:rgb(15,217,217) ;
+			}
+			.information_content ul{
+				margin-left: 40px;
+				margin-top: 10px;
+			}
+			.information_content ul li{
+				width: 100%;
+				height: 200px;
+				display: block;
+			}
+			.information_content ul li>span{
+				font-size: 32px;
+				color: #000;
+				display:block;
+				float: left;
+			}
+			.information_content ul li span p{
+				color: darkgray;
+				font-size: 24px;
+			}
+			.information_content .paper{
+				width: 600px;
+				height: 100%;
+				float: left;
+				margin-left: 100px;
+				text-indent: 2em;
+				font-size: 20px;
+				font-family: "微软雅黑";
+			}
+			.information_content .paper span{
+				text-indent: 2em;
+				font-size: 20px;
+				font-family: "微软雅黑";
+				color:darkgrey
+			}
+			.information_content .information_time{
+				width: 200px;
+				height: 40px;
+				background:rgb(15,217,217) ;
+				float: right;
+				text-align: center;
+				line-height: 40px;
+				position: relative;
+			}
+			.information_content .information_time:after{
+				content: "";
+				width: 200px;
+				height: 5px;
+				background-color: #000;
+				position: absolute;
+				bottom: -5px;
+				left: 0;
+			}
+			.section3{
+				min-width: 1200px;
+				background: url(img/work_bg.png) repeat;
+			}
+			.section3_content{
+				width: 1200px;
+				height: 100%;
+				margin: 0 auto;
+			}
+			.section3_title{
+				text-align: center;
+				margin-top: 120px;
+				font-size: 20px;
+				text-transform: uppercase;
+				position: relative;
+				color: #464545;
+			}
+			.section3_title h2:before{
+				content: "";
+				width: 470px;
+				height: 8px;
+				position: absolute;
+				top: 17px;
+				left: 0px;
+				background: url(img/subheader_line.png) repeat;
+				display: inline-block;
+			}
+			.section3_title h2:after{
+				content: "";
+				width: 470px;
+				height: 8px;
+				position: absolute;
+				top: 17px;
+				right: 0;
+				background: url(img/subheader_line.png) repeat;
+				display: inline-block;
+			}
+			.gallery{
+				width: 100%;
+				height: 307px;
+				overflow: hidden;
+				margin-top: 70px;
+			}
+			.gallery .grid{
+				width: 360px;
+				height: 307px;
+				float: left;
+			}
+			.gallery .grid.grid2,.grid.grid5{
+				margin: 0 60px;
+			}
+			.gallery .grid a{
+				display: block;
+				width: 100%;
+				height: 100%;
+				text-align: center;
+			}
+			.gallery .grid a:hover .grid_img img{
+				transform: scale(1.2); 
+			}
+			.grid .grid_img{
+				width: 358px;
+				border: 1px solid #464545;
+				height: 230px;
+				overflow: hidden;
+				margin-bottom: 25px;
+				
+			}
+			.grid .grid_img img{
+				width: 358px;
+				height: 230px;
+				transition: all .3s;
+				transform: scale(1); 
+			}
+			.grid span{
+				color: #4b4a4a;
+				font-size: 15px;
+				font-weight: normal;
+			}
+			.grid span p{
+				color: #808080;
+			}
+			.section4{
+				background-color: #2b2b2b;
+				min-width: 1200px;
+			}
+			.section4_content{
+				width: 1200px;
+				height: 100%;
+				margin: 0 auto;
+			}
+			.section4_title{
+				text-align: center;
+				color: #ff675f;
+				margin-top: 150px;
+				margin-bottom: 100px;
+			}
+			.section4_title h1{
+				font-size: 36px;
+				line-height: 38px;
+				font-weight: 300;
+			}
+			.section4_title p{
+				color: #7A7A7A;
+				display: block;
+				font-size: 14px;
+				line-height: 21px;
+			}
+			.section4_skillsk{
+				width: 100%;
+				height: 650px;
+			}
+			.section4_skillsk .skillsArea{
+				width: 33.33%;
+				text-align: center;
+				margin-bottom: 23px;
+				float: left;
+			}
+			.chart{
+				margin-bottom: 26px;
+				display: block;
+			}
+			.section4_skillsk .skillsArea h4{
+				font-size: 19px;
+				font-weight: 700;
+				line-height: 24px;
+				padding-bottom: 6px;
+				color: #fff;
+			}
+			.section4_skillsk .skillsArea p{
+				color: #84868d;
+				font-size: 13px;
+				line-height: 18px;
+				text-align: center;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<div id="fullpage">
+			<div class="fp-section section1">
+				<div class="section1_content">
+					<p><span>WEB &amp;  ENGINEER</span></p>
+					<div class="section1_informe">
+						<div class="informe_left">
+							<ul>
+								<li>姓名：</li>
+								<li>出生日期：</li>
+								<li>性别：</li>
+								<li>手机号码：</li>
+								<li>家庭地址：</li>
+								<li>邮箱：</li>
+							</ul>
+						</div>
+						<div class="informe_right">
+							<ul>
+								<li>学校：</li>
+								<li>所读专业：</li>
+								<li>专业方向：</li>
+								<li>工作年限：</li>
+								<li>github账号：</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="fp-section section2">
+				<div class="section2_content">
+					<div class="section2_title">
+						<div class="exp">
+							<p>MY<span>EXP</span></p>
+						</div>
+						<p>Web developer<span>$ experience</span></p>
+					</div>
+					<div class="section2_informe">
+						<p><i>Work Experience</i></p>
+						<div class="information_content">
+							<ul>
+								<li>
+									<span>
+										网页制作
+										<p>深圳,南山</p>
+									</span>
+									<div class="paper">
+										<p>2016年3月-2016年7月在深圳市微我科技有限公司就职，担任网页制作职位。</p>
+										<p><span>在该职位只要负责，使用Photoshop将网页Psd图中所用素材进行整理，使用HTML5/CSS3进行编写网页布局，使用JavaScript与jquery进行动画优化页面。</span></p>
+									</div>
+									<div class="information_time">
+										<p>2016-03</p>
+									</div>
+								</li>
+								<li>
+									<span>
+										网页制作
+										<p>深圳,南山</p>
+									</span>
+									<div class="paper">
+										<p>2016年3月-2016年7月在深圳市微我科技有限公司就职，担任网页制作职位。</p>
+										<p><span>在该职位只要负责，使用Photoshop将网页Psd图中所用素材进行整理，使用HTML5/CSS3进行编写网页布局，使用JavaScript与jquery进行动画优化页面。</span></p>
+									</div>
+									<div class="information_time">
+										<p>2016-03</p>
+									</div>
+								</li>
+								<li>
+									<span>
+										网页制作
+										<p>深圳,南山</p>
+									</span>
+									<div class="paper">
+										<p>2016年3月-2016年7月在深圳市微我科技有限公司就职，担任网页制作职位。</p>
+										<p><span>在该职位只要负责，使用Photoshop将网页Psd图中所用素材进行整理，使用HTML5/CSS3进行编写网页布局，使用JavaScript与jquery进行动画优化页面。</span></p>
+									</div>
+									<div class="information_time">
+										<p>2016-03</p>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="fp-section section3">
+				<div class="section3_content">
+					<div class="section3_title">
+						<h2>Project Work</h2>
+					</div>
+					<div class="gallery">
+						<div class="grid grid1">
+							<a href="#">
+								<div class="grid_img">
+									<img src="img/360截图20170519151119321.jpg" />
+								</div>
+								<span>Website name<p>Web Design / Development</p></span>
+							</a>
+						</div>
+						<div class="grid grid2">
+							<a href="#">
+								<div class="grid_img">
+									<img src="img/360截图20170519151119321.jpg" />
+								</div>
+								<span>Website name<p>Web Design / Development</p></span>
+							</a>
+						</div>
+						<div class="grid grid3">
+							<a href="#">
+								<div class="grid_img">
+									<img src="img/360截图20170519151119321.jpg" />
+								</div>
+								<span>Website name<p>Web Design / Development</p></span>
+							</a>
+						</div>
+					</div>
+					<div class="gallery">
+						<div class="grid grid4">
+							<a href="#">
+								<div class="grid_img">
+									<img src="img/360截图20170519151119321.jpg" />
+								</div>
+								<span>Website name<p>Web Design / Development</p></span>
+							</a>
+						</div>
+						<div class="grid grid5">
+							<a href="#">
+								<div class="grid_img">
+									<img src="img/360截图20170519151119321.jpg" />
+								</div>
+								<span>Website name<p>Web Design / Development</p></span>
+							</a>
+						</div>
+						<div class="grid grid6">
+							<a href="#">
+								<div class="grid_img">
+									<img src="img/360截图20170519151119321.jpg" />
+								</div>
+								<span>Website name<p>Web Design / Development</p></span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="fp-section section4">
+				<div class="section4_content">
+					<div class="section4_title">
+						<h1>TECHNICAL SKILLSX</h1>
+						<p>I can say i’m quite good at</p>
+					</div>
+					<div class="section4_skillsk">
+						<div class="skillsArea">
+							<span class="chart chart1"></span>
+							<h4>PHOTOSHOP</h4>
+							<p>Donec accumsan ligula vitae mag na curabitur id</p>
+						</div>
+						<div class="skillsArea">
+							<span class="chart chart2"></span>
+							<h4>PHOTOSHOP</h4>
+							<p>Donec accumsan ligula vitae mag na curabitur id</p>
+						</div>
+						<div class="skillsArea">
+							<span class="chart chart3"></span>
+							<h4>PHOTOSHOP</h4>
+							<p>Donec accumsan ligula vitae mag na curabitur id</p>
+						</div>
+						<div class="skillsArea">
+							<span class="chart chart4"></span>
+							<h4>PHOTOSHOP</h4>
+							<p>Donec accumsan ligula vitae mag na curabitur id</p>
+						</div>
+						<div class="skillsArea">
+							<span class="chart chart5"></span>
+							<h4>PHOTOSHOP</h4>
+							<p>Donec accumsan ligula vitae mag na curabitur id</p>
+						</div>
+						<div class="skillsArea">
+							<span class="chart chart6"></span>
+							<h4>PHOTOSHOP</h4>
+							<p>Donec accumsan ligula vitae mag na curabitur id</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			$(function(){
+				$(".chart").radialIndicator({
+					radius:80,
+					barColor:'#ff675f',
+					barWidth:15,
+					roundCorner : true,
+        			percentage: true,
+        			
+				});
+				var radialObj1 = $('.chart1').data('radialIndicator');
+				var radialObj2 = $('.chart2').data('radialIndicator');
+				var radialObj3 = $('.chart3').data('radialIndicator');
+				var radialObj4 = $('.chart4').data('radialIndicator');
+				var radialObj5 = $('.chart5').data('radialIndicator');
+				var radialObj6 = $('.chart6').data('radialIndicator');
+//				var radialObj=radialIndicator(".chart",{
+//					radius:80,
+//					barColor:'#ff675f',
+//					barWidth:15,
+//					roundCorner : true,
+//      			percentage: true
+//				})
+				$(".skillsArea").click(function(){
+					radialObj1.animate(40);
+				})
+				$("#fullpage").fullpage({
+					navigation:true,
+					anchors:['信息','经历','作品','技能'],
+					navigation:true,
+					navigationPosition:'right',
+					afterLoad:function(anchorl,index){
+						if(index==4){				
+								radialObj1.animate(60);
+								radialObj2.animate(40);
+								radialObj3.animate(60);
+								radialObj4.animate(60);
+								radialObj5.animate(60);
+								radialObj6.animate(60);
+						}
+					},
+					onLeave:function(link,index){
+						if(link==4){
+								radialObj1.animate(0);
+								radialObj2.animate(0);
+								radialObj3.animate(0);
+								radialObj4.animate(0);
+								radialObj5.animate(0);
+								radialObj6.animate(0);
+						}
+					}
+				});
+			})
+		</script>
+	</body>
+</html>
