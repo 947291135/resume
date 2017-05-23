@@ -646,20 +646,20 @@
 							case 2:
 								$(".exp").addClass("active");
 								$(".section2_title").addClass("active");
-								$(".section2_informe>p").animate({
+								$(".section2_informe>p").stop().animate({
 									marginLeft: "0",
 									opacity: "1",	
 								},function(){
 									$(".information_content").addClass("active");
-									$(".information_content ul li.li1").animate({
+									$(".information_content ul li.li1").stop().animate({
 										marginLeft: "0",
 										opacity: "1",	
 									},function(){
-										$(".information_content ul li.li2").animate({
+										$(".information_content ul li.li2").stop().animate({
 										marginLeft: "0",
 										opacity: "1",	
 										},function(){
-											$(".information_content ul li.li3").animate({
+											$(".information_content ul li.li3").stop().animate({
 												marginLeft: "0",
 												opacity: "1",	
 											})
