@@ -104,6 +104,13 @@
 				color: #FFF;
 				text-align: center;
 				float: left;
+				opacity: 0;
+				transform: translateY(-100%);
+				transition: all .5s;
+			}
+			.section2_title .exp.active{
+				transform: translateY(0);
+				opacity: 1;
 			}
 			.exp:before{
 				content: "";
@@ -118,11 +125,19 @@
 				font-size: 42px;
 				display:block;
 				padding-top: 30px ;
-				margin-left: -45px;				
+				margin-left: -45px;	
+				transform: translateX(-30px);
+				opacity: 0;		
+				transition: all .5s;	
+			}
+			.exp.active p{
+				opacity: 1;
+				transform: translateX(0);
 			}
 			.exp p span{
 				display: block;
 				margin-left: 90px;
+				
 			}
 			.section2_title>p{
 				display: block;
@@ -131,6 +146,13 @@
 				right: 0px;
 				color: #000;
 				font-size: 42px;
+				transform: translateX(30px);
+				opacity: 0;		
+				transition: all .5s;	
+			}
+			.section2_title.active>p{
+				opacity: 1;
+				transform: translateX(0);
 			}
 			.section2_title>p span{
 				display: block;
@@ -143,6 +165,8 @@
 			}
 			.section2_informe>p{
 				font-size: 38px;
+				margin-left: -30px;
+				opacity: 0;
 			}
 			.information_content{
 				margin-top: 20px;
@@ -156,8 +180,12 @@
 				left: 0;
 				top: 0;
 				width: 20px;
-				height: 100%;
+				height: 0%;
 				background:rgb(15,217,217) ;
+				transition: all 2s;
+			}
+			.information_content.active:before{
+				height: 100%;
 			}
 			.information_content ul{
 				margin-left: 40px;
@@ -167,6 +195,8 @@
 				width: 100%;
 				height: 200px;
 				display: block;
+				margin-left: 130px;
+				opacity: 0;
 			}
 			.information_content ul li>span{
 				font-size: 32px;
@@ -228,6 +258,13 @@
 				position: relative;
 				color: #464545;
 			}
+			.section3_title h2{
+				opacity: 0;
+				transition: all 0.8s;
+			}
+			.section3_title h2.active{
+				opacity: 1;
+			}
 			.section3_title h2:before{
 				content: "";
 				width: 470px;
@@ -237,6 +274,13 @@
 				left: 0px;
 				background: url(img/subheader_line.png) repeat;
 				display: inline-block;
+				transform: translateX(-100%);
+				opacity: 0;
+				transition: all 0.5s;
+			}
+			.section3_title h2.active:before{
+				transform: translateX(0);
+				opacity: 1;
 			}
 			.section3_title h2:after{
 				content: "";
@@ -247,6 +291,13 @@
 				right: 0;
 				background: url(img/subheader_line.png) repeat;
 				display: inline-block;
+				transform: translateX(100%);
+				opacity: 0;
+				transition: all 0.5s;
+			}
+			.section3_title h2.active:after{
+				transform: translateX(0);
+				opacity: 1;
 			}
 			.gallery{
 				width: 100%;
@@ -258,6 +309,30 @@
 				width: 360px;
 				height: 307px;
 				float: left;
+				transform: translateY(307px);
+				opacity: 0;
+			}
+			.grid1{
+				transition: all 0.5s; 
+			}
+			.grid2{
+				transition: all 0.7s; 
+			}
+			.grid3{
+				transition: all 0.9s; 
+			}
+			.grid4{
+				transition: all 1.1s; 
+			}
+			.grid5{
+				transition: all 1.3s; 
+			}
+			.grid6{
+				transition: all 1.5s; 
+			}
+			.gallery .grid.active{
+				transform: translateY(0px);
+				opacity: 1;
 			}
 			.gallery .grid.grid2,.grid.grid5{
 				margin: 0 60px;
@@ -389,7 +464,7 @@
 						<p><i>Work Experience</i></p>
 						<div class="information_content">
 							<ul>
-								<li>
+								<li class="li1">
 									<span>
 										网页制作
 										<p>深圳,南山</p>
@@ -402,7 +477,7 @@
 										<p>2016-03</p>
 									</div>
 								</li>
-								<li>
+								<li class="li2">
 									<span>
 										网页制作
 										<p>深圳,南山</p>
@@ -415,7 +490,7 @@
 										<p>2016-03</p>
 									</div>
 								</li>
-								<li>
+								<li class="li3">
 									<span>
 										网页制作
 										<p>深圳,南山</p>
@@ -565,25 +640,91 @@
 					navigation:true,
 					navigationPosition:'right',
 					afterLoad:function(anchorl,index){
-						if(index==4){				
+						switch (index){
+							case 1:
+								break;
+							case 2:
+								$(".exp").addClass("active");
+								$(".section2_title").addClass("active");
+								$(".section2_informe>p").animate({
+									marginLeft: "0",
+									opacity: "1",	
+								},function(){
+									$(".information_content").addClass("active");
+									$(".information_content ul li.li1").animate({
+										marginLeft: "0",
+										opacity: "1",	
+									},function(){
+										$(".information_content ul li.li2").animate({
+										marginLeft: "0",
+										opacity: "1",	
+										},function(){
+											$(".information_content ul li.li3").animate({
+												marginLeft: "0",
+												opacity: "1",	
+											})
+										})
+									})
+								});
+								break;
+							case 3:
+								$(".grid").addClass("active");
+								$(".section3_title h2").addClass("active");
+								break;
+							case 4:
 								radialObj1.animate(60);
 								radialObj2.animate(40);
 								radialObj3.animate(60);
 								radialObj4.animate(60);
 								radialObj5.animate(60);
 								radialObj6.animate(60);
+								break;
+							default:
+								break;
 						}
 					},
 					onLeave:function(link,index){
-						if(link==4){
+						switch (link){
+							case 1:
+								break;
+							case 2:
+								$(".exp").removeClass("active");
+								$(".section2_title").removeClass("active");
+								$(".section2_informe>p").css({
+									marginLeft: "-30px",
+									opacity: "0",	
+								});
+								$(".information_content").removeClass("active");
+								$(".information_content ul li.li1").css({
+									marginLeft: "130px",
+									opacity: "0",	
+								});
+								$(".information_content ul li.li2").css({
+									marginLeft: "130px",
+									opacity: "0",	
+								});
+								$(".information_content ul li.li3").css({
+									marginLeft: "130px",
+									opacity: "0",	
+								});
+								break;
+							case 3:
+								$(".grid").removeClass("active");
+								$(".section3_title h2").removeClass("active");
+								
+								break;
+							case 4:
 								radialObj1.animate(0);
 								radialObj2.animate(0);
 								radialObj3.animate(0);
 								radialObj4.animate(0);
 								radialObj5.animate(0);
 								radialObj6.animate(0);
+								break;
+							default:
+								break;
 						}
-					}
+					},
 				});
 			})
 		</script>
