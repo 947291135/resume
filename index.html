@@ -644,6 +644,12 @@
 							case 1:
 								break;
 							case 2:
+								$(".section2_informe>p").css({
+									marginLeft:"-30px",
+									opacity:"0",
+								});
+								
+								
 								$(".exp").addClass("active");
 								$(".section2_title").addClass("active");
 								$(".section2_informe>p").stop().animate({
@@ -666,6 +672,7 @@
 										})
 									})
 								});
+								
 								break;
 							case 3:
 								$(".grid").addClass("active");
@@ -683,7 +690,7 @@
 								break;
 						}
 					},
-					onLeave:function(link,index){
+					onLeave:function(link,index,a){
 						switch (link){
 							case 1:
 								break;
@@ -695,18 +702,19 @@
 									opacity: "0",	
 								});
 								$(".information_content").removeClass("active");
-								$(".information_content ul li.li1").css({
+								$(".information_content ul li.li1").animate({
 									marginLeft: "130px",
 									opacity: "0",	
 								});
-								$(".information_content ul li.li2").css({
+								$(".information_content ul li.li2").animate({
 									marginLeft: "130px",
 									opacity: "0",	
 								});
-								$(".information_content ul li.li3").css({
+								$(".information_content ul li.li3").animate({
 									marginLeft: "130px",
 									opacity: "0",	
 								});
+								
 								break;
 							case 3:
 								$(".grid").removeClass("active");
