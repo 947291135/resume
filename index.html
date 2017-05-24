@@ -25,7 +25,9 @@
 			}
 			.section1 .section1_content{
 				width: 1000px;
-				height: 548px;
+				height: 0px;
+				opacity: 0;
+				/*height: 548px;*/
 				background:rgba(0,0,0,0.5);
 				margin: 0 auto;
 				padding: 100px;
@@ -624,16 +626,7 @@
 				var radialObj4 = $('.chart4').data('radialIndicator');
 				var radialObj5 = $('.chart5').data('radialIndicator');
 				var radialObj6 = $('.chart6').data('radialIndicator');
-//				var radialObj=radialIndicator(".chart",{
-//					radius:80,
-//					barColor:'#ff675f',
-//					barWidth:15,
-//					roundCorner : true,
-//      			percentage: true
-//				})
-				$(".skillsArea").click(function(){
-					radialObj1.animate(40);
-				})
+
 				$("#fullpage").fullpage({
 					navigation:true,
 					anchors:['信息','经历','作品','技能'],
@@ -642,6 +635,10 @@
 					afterLoad:function(anchorl,index){
 						switch (index){
 							case 1:
+								$(".section1_content").animate({
+									height:"548px",
+									opacity:"1",
+								})
 								break;
 							case 2:
 								$(".section2_informe>p").css({
@@ -693,6 +690,10 @@
 					onLeave:function(link,index,a){
 						switch (link){
 							case 1:
+								$(".section1_content").animate({
+									height:"0",
+									opacity:"0",
+								})
 								break;
 							case 2:
 								$(".exp").removeClass("active");
@@ -733,6 +734,7 @@
 								break;
 						}
 					},
+					navigationTooltips:['信息','经历','作品','技能'],
 				});
 			})
 		</script>
