@@ -423,34 +423,101 @@
 				line-height: 18px;
 				text-align: center;
 			}
+			.section0{
+				background: rgb(40,39,55);
+				min-width: 1200px;
+			}
+			.section0 .section0_content{
+				width: 1100px;
+				height: 260px;
+				margin: 300px auto;
+				
+			}
+			.section0_content .photo{
+				overflow: hidden;
+				width: 260px;
+				height: 260px;
+				padding-right: 100px;
+				float: left;
+			}
+			.photo a{
+				width: 250px;
+				height: 250px;
+				display:inline-block;
+				border:5px solid #fff;
+				border-radius: 100%;
+				overflow: hidden;
+				margin-left: 360px;
+			}
+			.user_information{
+				 float: left;
+				 width: 690px;
+				 height: 260px;
+				 position: relative;
+				 font-family: "微软雅黑";
+				 padding-left: 40px;
+				 overflow: hidden;
+				 
+			}
+			.user_information:before{
+				content: '';
+				position: absolute;
+				width: 2px;
+				height: 0;
+				left: 0;
+				top: 0;
+				background: #fff;
+				transition: all 0.5s;
+			}
+			.user_information.active:before{
+				height: 100%;
+			}
+			.user_information h2{
+				color: #fff;
+				font-size: 70px;
+				line-height: 70px;
+				font-weight: 100;
+				margin-left: -99%;
+			}
+			.user_information>p{
+				color: rgb(226,59,117);
+				font-size: 45px;
+				line-height: 75px;
+				font-weight: 100;
+				margin-left: -99%;
+			}
+			.user_information span{
+				color: rgb(172,173,178);
+				width: 690px;
+				font-size: 25px;
+				line-height: 35px;
+				font-weight: 100;
+				margin-left: -104%;
+				display: inline-block;
+			}
+			.user_information span p{
+				line-height: 50px;
+				margin-left: -99%;
+			}
 		</style>
 		
 	</head>
 	<body>
 		<div id="fullpage">
-			<div class="fp-section section1">
-				<div class="section1_content">
-					<p><span>WEB &amp;  ENGINEER</span></p>
-					<div class="section1_informe">
-						<div class="informe_left">
-							<ul>
-								<li>姓名：</li>
-								<li>出生日期：</li>
-								<li>性别：</li>
-								<li>手机号码：</li>
-								<li>家庭地址：</li>
-								<li>邮箱：</li>
-							</ul>
-						</div>
-						<div class="informe_right">
-							<ul>
-								<li>学校：</li>
-								<li>所读专业：</li>
-								<li>专业方向：</li>
-								<li>工作年限：</li>
-								<li>github账号：</li>
-							</ul>
-						</div>
+			<div class="fp-section section0">
+				<div class="section0_content">
+					<div class="photo">
+						<a href="#">
+							<img src="img/1_131111101729_10.png" />
+						</a>
+					</div>
+					<div class="user_information">
+						<h2>WEB &amp;  ENGINEER</h2>
+						<p>He Shen Ming</p>
+						<span>
+							深圳信息职业技术学院\软件技术\.net方向\HTML5前端工程师\ASP.NET\PHP\CSS3
+							<p><i>2017-5-25</i></p>
+						</span>
 					</div>
 				</div>
 			</div>
@@ -609,6 +676,7 @@
 					</div>
 				</div>
 			</div>
+			
 		</div>
 		<script>
 			$(function(){
@@ -634,19 +702,7 @@
 					navigationPosition:'right',
 					afterLoad:function(anchorl,index){
 						switch (index){
-							case 1:
-								$(".section1_content").animate({
-									height:"548px",
-									opacity:"1",
-								})
-								break;
 							case 2:
-								$(".section2_informe>p").css({
-									marginLeft:"-30px",
-									opacity:"0",
-								});
-								
-								
 								$(".exp").addClass("active");
 								$(".section2_title").addClass("active");
 								$(".section2_informe>p").stop().animate({
@@ -683,6 +739,18 @@
 								radialObj5.animate(60);
 								radialObj6.animate(60);
 								break;
+							case 1:
+								$(".user_information").addClass("active");
+								$(".photo a").animate({marginLeft:"0"},function(){									
+									$(".user_information h2").animate({marginLeft:"0"},function(){
+										$(".user_information>p").animate({marginLeft:"0"},function(){
+											$(".user_information span").animate({marginLeft:"0"},function(){
+												$(".user_information span p").animate({marginLeft:"0"});
+											});
+										});
+									});
+								})
+								break;
 							default:
 								break;
 						}
@@ -690,12 +758,25 @@
 					onLeave:function(link,index,a){
 						switch (link){
 							case 1:
-								$(".section1_content").animate({
-									height:"0",
-									opacity:"0",
-								})
+								$(".photo a").stop(true);
+								$(".user_information h2").stop(true);
+								$(".user_information>p").stop(true);
+								$(".user_information span").stop(true);
+								$(".user_information span p").stop(true);
+							
+								$(".user_information").removeClass("active");
+								$(".photo a").css({marginLeft:"360px"});								
+								$(".user_information h2").css({marginLeft:"-99%"});
+								$(".user_information>p").css({marginLeft:"-99%"});
+								$(".user_information span").css({marginLeft:"-104%"});
+								$(".user_information span p").css({marginLeft:"-99%"});
 								break;
 							case 2:
+								$(".section2_informe>p").stop(true);
+								$(".information_content ul li.li1").stop(true);
+								$(".information_content ul li.li2").stop(true);
+								$(".information_content ul li.li3").stop(true);
+							
 								$(".exp").removeClass("active");
 								$(".section2_title").removeClass("active");
 								$(".section2_informe>p").css({
