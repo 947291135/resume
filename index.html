@@ -30,7 +30,7 @@
                 </nav>
             </div>
         </div>
-        <div v-if='index==1' class="item animated" :class="[{active:index==1,bounceOut:index!==1,bounceIn:index==1}]">
+        <div v-if='index==1' class="item" :class="['animated',{active:index==1,bounceOut:index!==1,bounceIn:index==1}]">
             <!-- 履历 -->
             <div class="item_conten">
                 <i class="clone el-icon-close" @click='go(0)'></i>
@@ -44,7 +44,7 @@
                 </div>
             </div>
         </div>
-        <div v-if='index==2'  class="item animated" :class="[{active:index==2,bounceOut:index!==2,bounceIn:index==2}]">
+        <div v-if='index==2'  class="item" :class="['animated',{active:index==2,bounceOut:index!==2,bounceIn:index==2}]">
              <!-- 项目经历 -->
             <div class="item_conten">
                 <i class="clone el-icon-close" @click='go(0)'></i>
@@ -58,7 +58,7 @@
                 </div>
             </div>
         </div>
-        <div v-if='index==3'  class="item animated" :class="[{active:index==3,bounceOut:index!==3,bounceIn:index==3}]">
+        <div v-if='index==3'  class="item" :class="['animated',{active:index==3,bounceOut:index!==3,bounceIn:index==3}]">
             <!-- 技能 -->
             <div class="item_conten">
                 <i class="clone el-icon-close" @click='go(0)'></i>
@@ -75,7 +75,7 @@
                 </div>
             </div>
         </div>
-        <div v-if='index==4'  class="item animated" :class="['animated',{active:index==4,bounceOut:index!==4,bounceIn:index==4}]">
+        <div v-if='index==4'  class="item" :class="['animated',{active:index==4,bounceOut:index!==4,bounceIn:index==4}]">
             <!-- 工具 -->
             <div class="item_conten">
                 <i class="clone el-icon-close" @click='go(0)'></i>
@@ -223,6 +223,10 @@
         justify-content: center;
         align-content: center;
         transition: all .5s;
+        visibility: hidden;
+    }
+    .vue .item.animated{
+        visibility: initial;
     }
     .vue  .item>div{
         background: rgba(27, 31, 34, 0.85);
