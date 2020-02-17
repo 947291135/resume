@@ -2,17 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Ming个人简历</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"> 
     <script src="./js/rem.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
-    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
-    <script src="https://cdn.bootcss.com/vue-i18n/8.14.1/vue-i18n.min.js"></script>
-    <link href="https://cdn.bootcss.com/animate.css/3.7.2/animate.min.css" rel="stylesheet">
+    <script src="./js/vue.js"></script>
+    <link rel="stylesheet" href="./css/index.css">
+    <link href="./css/animate.css" rel="stylesheet">
 </head>
 <body>
     <div class="vue">
-        <div  :class="['main','animated',{active:active,bounceOut:index!==0,bounceIn:index==0}]">
+        <div class="main animated"  :class="[,{active:active,bounceOut:index!==0,bounceIn:index==0}]">
             <div class="info" v-if='index==0'>
                 <div class="content">
                     <div class="inner">
@@ -31,7 +30,7 @@
                 </nav>
             </div>
         </div>
-        <div v-if='index==1' :class="['item','record','animated',{bounceOut:index!==1,bounceIn:index==1}]">
+        <div v-if='index==1' class="item animated" :class="[{active:index==1,bounceOut:index!==1,bounceIn:index==1}]">
             <!-- 履历 -->
             <div class="item_conten">
                 <i class="clone el-icon-close" @click='go(0)'></i>
@@ -45,7 +44,7 @@
                 </div>
             </div>
         </div>
-        <div v-if='index==2' :class="['item','record','animated',{bounceOut:index!==2,bounceIn:index==2}]">
+        <div v-if='index==2'  class="item animated" :class="[{active:index==2,bounceOut:index!==2,bounceIn:index==2}]">
              <!-- 项目经历 -->
             <div class="item_conten">
                 <i class="clone el-icon-close" @click='go(0)'></i>
@@ -59,7 +58,7 @@
                 </div>
             </div>
         </div>
-        <div v-if='index==3' :class="['item','record','animated',{bounceOut:index!==3,bounceIn:index==3}]">
+        <div v-if='index==3'  class="item animated" :class="[{active:index==3,bounceOut:index!==3,bounceIn:index==3}]">
             <!-- 技能 -->
             <div class="item_conten">
                 <i class="clone el-icon-close" @click='go(0)'></i>
@@ -76,7 +75,7 @@
                 </div>
             </div>
         </div>
-        <div v-if='index==4' :class="['item','record','animated',{bounceOut:index!==4,bounceIn:index==4}]">
+        <div v-if='index==4'  class="item animated" :class="['animated',{active:index==4,bounceOut:index!==4,bounceIn:index==4}]">
             <!-- 工具 -->
             <div class="item_conten">
                 <i class="clone el-icon-close" @click='go(0)'></i>
@@ -209,7 +208,7 @@
 
 
     /* 子页面 */
-    .vue  .item{
+    .vue .item{
         position: absolute;
         top: 0;
         left: 0;
@@ -350,27 +349,8 @@
     }
 </style>
 <script>
-    const messages = {
-        en: {
-            message: {
-                hello: 'hello world'
-            }
-        },
-        ja: {
-            message: {
-                hello: 'こんにちは、世界'
-            }
-        }
-    }
-
-    // 通过选项创建 VueI18n 实例
-    const i18n = new VueI18n({
-        locale: 'ja', // 设置地区
-        messages, // 设置地区信息
-    })
     new Vue({
         el:'.vue',
-        i18n,
         data () {
             return {
                 active:false,
